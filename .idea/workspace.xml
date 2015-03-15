@@ -24,21 +24,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tcp_03.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tcp/tcp_03.js">
+      <file leaf-file-name="http_02.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/http/http_02.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="768">
-              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="1792">
+              <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tcp_04.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tcp/tcp_04.js">
+      <file leaf-file-name="_stream_readable.js" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/.WebStorm9/system/extLibs/nodejs-v0.10.35-src/core-modules-sources/lib/_stream_readable.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4626506" vertical-offset="384" max-vertical-offset="928">
-              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+            <state vertical-scroll-proportion="8.083933" vertical-offset="15221" max-vertical-offset="29920">
+              <caret line="600" column="19" selection-start-line="600" selection-start-column="19" selection-end-line="600" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fs.js" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.WebStorm9/system/extLibs/nodejs-v0.10.35-src/core-modules-sources/lib/fs.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.12244898" vertical-offset="53798" max-vertical-offset="56480">
+              <caret line="1700" column="0" selection-start-line="1700" selection-start-column="0" selection-end-line="1700" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="http_03.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/http/http_03.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="1152">
+              <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -75,14 +95,22 @@
         <option value="$PROJECT_DIR$/file/write2.js" />
         <option value="$PROJECT_DIR$/file/msg2.txt" />
         <option value="$PROJECT_DIR$/file/directory.js" />
-        <option value="$PROJECT_DIR$/file/path.js" />
         <option value="$PROJECT_DIR$/test/test3.js" />
-        <option value="$PROJECT_DIR$/stream/project/trans.js" />
         <option value="$PROJECT_DIR$/tcp/tcp_01.js" />
         <option value="$PROJECT_DIR$/tcp/tcp_02.js" />
         <option value="$PROJECT_DIR$/tcp/msg.txt" />
         <option value="$PROJECT_DIR$/tcp/tcp_04.js" />
         <option value="$PROJECT_DIR$/tcp/tcp_03.js" />
+        <option value="$PROJECT_DIR$/file/path.js" />
+        <option value="$PROJECT_DIR$/stream/project/trans.js" />
+        <option value="$PROJECT_DIR$/udp/upd_client.js" />
+        <option value="$PROJECT_DIR$/udp/udp_server.js" />
+        <option value="$PROJECT_DIR$/tcp/tcp.js" />
+        <option value="$PROJECT_DIR$/http/index" />
+        <option value="$PROJECT_DIR$/http/http_01.js" />
+        <option value="$PROJECT_DIR$/http/index.html" />
+        <option value="$PROJECT_DIR$/http/http_02.js" />
+        <option value="$PROJECT_DIR$/http/http_03.js" />
       </list>
     </option>
   </component>
@@ -147,7 +175,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tcp" />
+              <option name="myItemId" value="http" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -163,36 +191,38 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\vip_data\node.js正式课\practice\http" />
       <recent name="D:\vip_data\node.js正式课\practice\tcp" />
       <recent name="D:\vip_data\node.js正式课\practice\file" />
       <recent name="D:\vip_data\node.js正式课\practice" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.tcp_04.js">
-    <configuration default="false" name="trans.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="trans.js" working-dir="$PROJECT_DIR$/stream/project">
+  <component name="RunManager" selected="Node.js.http_03.js">
+    <configuration default="false" name="tcp.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="tcp.js" working-dir="$PROJECT_DIR$/tcp">
       <RunnerSettings RunnerId="Basic" />
       <ConfigurationWrapper RunnerId="Basic" />
       <method />
     </configuration>
-    <configuration default="false" name="tcp_01.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="tcp_01.js" working-dir="$PROJECT_DIR$/tcp">
+    <configuration default="false" name="http_01.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="http_01.js" working-dir="$PROJECT_DIR$/http">
       <RunnerSettings RunnerId="Basic" />
       <ConfigurationWrapper RunnerId="Basic" />
       <method />
     </configuration>
-    <configuration default="false" name="tcp_02.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="tcp_02.js" working-dir="$PROJECT_DIR$/tcp">
+    <configuration default="false" name="http_02.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="http_02.js" working-dir="$PROJECT_DIR$/http">
       <RunnerSettings RunnerId="Basic" />
       <ConfigurationWrapper RunnerId="Basic" />
       <method />
     </configuration>
-    <configuration default="false" name="tcp_03.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="tcp_03.js" working-dir="$PROJECT_DIR$/tcp">
-      <RunnerSettings RunnerId="Basic" />
-      <ConfigurationWrapper RunnerId="Basic" />
+    <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/practice/http/index.html">
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="tcp_04.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="tcp_04.js" working-dir="$PROJECT_DIR$/tcp">
+    <configuration default="false" name="http_03.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="http_03.js" working-dir="$PROJECT_DIR$/http">
       <RunnerSettings RunnerId="Basic" />
       <ConfigurationWrapper RunnerId="Basic" />
       <method />
@@ -241,19 +271,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Node.js.test3.js" />
-      <item index="1" class="java.lang.String" itemvalue="Node.js.trans.js" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js.tcp_01.js" />
-      <item index="3" class="java.lang.String" itemvalue="Node.js.tcp_02.js" />
-      <item index="4" class="java.lang.String" itemvalue="Node.js.tcp_03.js" />
-      <item index="5" class="java.lang.String" itemvalue="Node.js.tcp_04.js" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.tcp.js" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.http_01.js" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.http_02.js" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      <item index="5" class="java.lang.String" itemvalue="Node.js.http_03.js" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.tcp_04.js" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.tcp_03.js" />
-        <item index="2" class="java.lang.String" itemvalue="Node.js.tcp_02.js" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.tcp_01.js" />
-        <item index="4" class="java.lang.String" itemvalue="Node.js.trans.js" />
+        <item index="0" class="java.lang.String" itemvalue="Node.js.http_03.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.http_02.js" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.http_01.js" />
+        <item index="4" class="java.lang.String" itemvalue="Node.js.tcp.js" />
       </list>
     </recent_temporary>
   </component>
@@ -279,9 +309,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11764706" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19242273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990461" sideWeight="0.4995015" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27662957" sideWeight="0.85044867" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27344993" sideWeight="0.85044867" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.354531" sideWeight="0.14955135" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -327,6 +357,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.54376656" vertical-offset="17043" max-vertical-offset="18144">
           <caret line="558" column="12" selection-start-line="558" selection-start-column="12" selection-end-line="558" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -419,14 +450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.WebStorm9/system/extLibs/nodejs-v0.10.35-src/core-modules-sources/lib/fs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4229692" vertical-offset="5193" max-vertical-offset="56480">
-          <caret line="186" column="24" selection-start-line="186" selection-start-column="16" selection-end-line="186" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/file/t.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -489,26 +512,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file/path.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38797814" vertical-offset="146" max-vertical-offset="640">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test3.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37209302" vertical-offset="0" max-vertical-offset="602">
           <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stream/project/trans.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8463357" vertical-offset="570" max-vertical-offset="1312">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -518,7 +525,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="84" max-vertical-offset="1760">
           <caret line="12" column="7" selection-start-line="10" selection-start-column="4" selection-end-line="12" selection-end-column="7" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -549,8 +556,104 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tcp/tcp_04.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4626506" vertical-offset="384" max-vertical-offset="928">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="228" max-vertical-offset="928">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file/path.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48210922" vertical-offset="0" max-vertical-offset="640">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stream/project/trans.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45762712" vertical-offset="429" max-vertical-offset="1408">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/udp/upd_client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5567567" vertical-offset="0" max-vertical-offset="768">
+          <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/udp/udp_server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6918919" vertical-offset="288" max-vertical-offset="864">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tcp/tcp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62441313" vertical-offset="182" max-vertical-offset="1728">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/http/index">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/http/http_01.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="992">
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/http/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59574467" vertical-offset="192" max-vertical-offset="672">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/http/http_03.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="1152">
+          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.WebStorm9/system/extLibs/nodejs-v0.10.35-src/core-modules-sources/lib/fs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12244898" vertical-offset="53798" max-vertical-offset="56480">
+          <caret line="1700" column="0" selection-start-line="1700" selection-start-column="0" selection-end-line="1700" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/http/http_02.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="1792">
+          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.WebStorm9/system/extLibs/nodejs-v0.10.35-src/core-modules-sources/lib/_stream_readable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="8.083933" vertical-offset="15221" max-vertical-offset="29920">
+          <caret line="600" column="19" selection-start-line="600" selection-start-column="19" selection-end-line="600" selection-end-column="19" />
           <folding />
         </state>
       </provider>
