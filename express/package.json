@@ -1,0 +1,21 @@
+{
+  "name": "exp",
+  "version": "1.0.0",
+  "description": "desc",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git"
+  },
+  "keywords": [
+    "key"
+  ],
+  "author": "auth",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}

@@ -8,6 +8,7 @@ var http = require('http'),
 var uuid = require('uuid');
 //会话对象 key就是会话ID，VALUE就是存储数据的session对象
 var session = {};//1 150 2 135
+
 var SESSION_ID = 'zfkey';
 var EXP_TIME = 5*1000;
 http.createServer(function(req,res){
