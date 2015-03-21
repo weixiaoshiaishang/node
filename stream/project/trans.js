@@ -13,26 +13,31 @@ function deep(dir){
 }
 
 function wide(dir){
-    console.log(dir);
     var stat = fs.statSync(dir);
     if(stat.isDirectory()){
-        var files = fs.readdirSync(dir);
+        var files = [[dir,fs.readdirSync(dir)]];
         var fileArray = [];
         while(files.length>0){
             for(var i=0;i<files.length;i++){
-                console.log(files[i]);
-                if(fs.statSync(path.join(dir,files[i])).isDirectory()){
-                    fileArray.push(fs.readdirSync(path.join(dir,files[i])));
+                var parentDir = files[i][0];
+                console.log(parentDir);
+                for(var j=0;j<files[i][1].length;j++){
+                    if(fs.statSync(path.join(parentDir,files[i][1][j])).isDirectory()){
+                        var currentDir = path.join(parentDir,files[i][1][j]);
+                        var tempFiles = fs.readdirSync(currentDir);
+                        fileArray.push([currentDir,tempFiles]);
+                    }
                 }
             }
             files =fileArray;
+            fileArray = [];
         }
 
     }
 }
 
 
-//wide(path.resolve('a'));
+wide(path.resolve('a'));
 //console.log(path.resolve('a'));
-var files = fs.readdirSync(path.resolve('a'));
-console.log(typeof files[0]);
+//var files = fs.readdirSync(path.resolve('a'));
+//console.log(typeof files[0]);
