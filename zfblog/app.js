@@ -12,7 +12,9 @@ var article = require('./routes/article');
 
 var app = express();
 app.use(session({
-  secret:'zfblog'
+  secret:'zfblog',
+  resave:false,
+  saveUninitialized:false
 }));
 app.use(flash());
 // 设置模板引擎和模板存放路径
@@ -28,9 +30,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());//解析 cookie
 app.use(express.static(path.join(__dirname, 'public')));//静态文件中间件
 app.use(function(req,res,next){
-  req.locals = {
-    error:""
-  }
+  res.locals.er = "";
+  res.locals.title = "welcom";
   next();
 })
 app.use('/', routes);

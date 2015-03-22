@@ -3,10 +3,7 @@ var router = express.Router();
 
 
 router.get('/reg', function(req, res, next) {
-  res.render('user/reg',{
-    title:"欢迎注册",
-    er:req.flash('error').toString()
-  });
+  res.render('user/reg',res.locals);
 });
 
 router.post('/reg', function(req, res, next) {
@@ -18,6 +15,11 @@ router.post('/reg', function(req, res, next) {
     req.flash('error','用户名不能为空');
     return res.redirect('back');
   }
+   if(!password || password !=password_repeat ){
+       req.flash('error','两次输入的密码不一致，请重新输入');
+       return res.redirect('back');
+   }
+
   res.redirect('/');
 });
 
