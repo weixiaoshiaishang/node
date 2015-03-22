@@ -30,8 +30,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());//解析 cookie
 app.use(express.static(path.join(__dirname, 'public')));//静态文件中间件
 app.use(function(req,res,next){
-  res.locals.er = "";
-  res.locals.title = "welcom";
+  res.locals.error = req.flash('error').toString() || "";
+  res.locals.success = req.flash('success').toString() || "";
+  res.locals.title = "";
   next();
 })
 app.use('/', routes);

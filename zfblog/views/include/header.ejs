@@ -27,11 +27,17 @@
 </nav>
 <div class="container">
     <%
-     if(er){
+     if(error){
          %>
        <div class="alert alert-danger" role="alert">
-       <%=er%>
+       <%=error%>
        </div>
+        <%
+     }else if(success){
+         %>
+    <div class="alert alert-success" role="alert">
+        <%=success%>
+    </div>
         <%
      }
      %>
