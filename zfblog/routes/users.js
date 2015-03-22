@@ -4,7 +4,7 @@ var router = express.Router();
 var crypto = require('crypto');
 
 router.get('/reg', function(req, res, next) {
-  res.render('user/reg',res.locals);
+  res.render('user/reg');
 });
 
 router.post('/reg', function(req, res, next) {
@@ -27,17 +27,64 @@ router.post('/reg', function(req, res, next) {
       password:password,
       email:req.body.email
   });
-  newUser.save(function(err,user){
+  User.get(username,function(err,user){
       if(err){
-          req.flash('error','注册失败');
+          req.flash('error','查询出错');
           return res.redirect('back');
       }else{
-          req.session.user = user;
-          req.flash('success','注册成功');
-          res.redirect('/');
-      }
+          if(user){
+              req.flash('error','用户名存在，请重新输入');
+              return res.redirect('back');
+          }else{
+              newUser.save(function(err,user){
+                  if(err){
+                      req.flash('error','注册失败');
+                      return res.redirect('back');
+                  }else{
+                      req.session.user = user;
+                      req.flash('success','注册成功,欢迎'+user.username+'光临');
+                      res.redirect('/');
+                  }
 
-  })
+              })
+          }
+      }
+  });
+
 });
 
+router.get('/login', function(req, res, next) {
+    res.render('user/login');
+});
+
+router.get('/logout', function(req, res, next) {
+    req.session.user = null;
+    req.flash('success','退出成功');
+    res.redirect('/');
+});
+
+router.post('/login', function(req, res, next) {
+    var password = crypto.createHash('md5').update(req.body.password).digest('hex');
+    User.get(req.body.username,function(err,user){
+        if(err){
+            req.flash('error','查询出错');
+            return res.redirect('back');
+        }else {
+            if(user){
+                if(user.password != password){
+                    req.flash('error','密码错误,请重新输入');
+                    return res.redirect('back');
+                }else{
+                    req.session.user = user;
+                    req.flash('success','注册成功,欢迎'+user.username+'光临');
+                    res.redirect('/');
+                }
+            }else{
+                console.log('====');
+                req.flash('error','用户名不存在,请重新输入');
+                return res.redirect('back');
+            }
+        }
+    });
+})
 module.exports = router;

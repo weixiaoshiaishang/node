@@ -37,6 +37,15 @@ User.prototype.save = function(callback){
     });
 }
 
+User.get = function(username,callback){
+    userModel.findOne({username:username},function(err,user){
+        if(err)
+            return callback(err);
+        else{
+            callback(null,user);
+        }
+    });
+}
 
 
 module.exports = User;

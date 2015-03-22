@@ -33,11 +33,14 @@ app.use(function(req,res,next){
   res.locals.error = req.flash('error').toString() || "";
   res.locals.success = req.flash('success').toString() || "";
   res.locals.title = "";
+  res.locals.user = req.session.user;
   next();
 })
 app.use('/', routes);
 
 app.use('/users', users);
+
+app.use('/article', article);
 
 // catch 404 and forward to error handler
 //捕获
