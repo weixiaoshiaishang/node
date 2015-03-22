@@ -25,6 +25,7 @@ app.use(cookieParser());//解析 cookie
 app.use(express.static(path.join(__dirname, 'public')));//静态文件中间件
 
 app.use('/', routes);
+
 app.use('/users', users);
 
 // catch 404 and forward to error handler

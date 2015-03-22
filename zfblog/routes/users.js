@@ -9,7 +9,8 @@ router.get('/reg', function(req, res, next) {
 });
 
 router.post('/reg', function(req, res, next) {
-  res.send(req.body);
+  //res.send(req.body);
+  res.redirect('/');
 });
 
 module.exports = router;
