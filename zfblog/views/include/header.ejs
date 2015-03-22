@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <style>
         body{
-            padding-top:50px;
+            padding-top:70px;
         }
     </style>
 </head>
@@ -26,4 +26,12 @@
     </div>
 </nav>
 <div class="container">
-    <%=er%>
+    <%
+     if(er){
+         %>
+       <div class="alert alert-danger" role="alert">
+       <%=er%>
+       </div>
+        <%
+     }
+     %>
