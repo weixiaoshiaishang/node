@@ -5,16 +5,23 @@ var logger = require('morgan');//日志中间件
 var cookieParser = require('cookie-parser');//解析cookie
 var bodyParser = require('body-parser');//解析body的数据
 var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 var flash = require('connect-flash');
 var routes = require('./routes/index');//首页
 var users = require('./routes/users');//用户
 var article = require('./routes/article');
-
+var settings = require('./settings');
+var forbidden = require('./middleware/forbidden');
 var app = express();
 app.use(session({
   secret:'zfblog',
   resave:false,
-  saveUninitialized:false
+  saveUninitialized:false,
+  store:new MongoStore({
+    db:settings.mongoConfig.db,
+    host:settings.mongoConfig.host,
+    port:settings.mongoConfig.port
+  })
 }));
 app.use(flash());
 // 设置模板引擎和模板存放路径
@@ -29,6 +36,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());//解析 cookie
 app.use(express.static(path.join(__dirname, 'public')));//静态文件中间件
+app.use(forbidden({mustLogin:['/users/logout'],mustNotLogin:['/users/reg','/users/login']}));
 app.use(function(req,res,next){
   res.locals.error = req.flash('error').toString() || "";
   res.locals.success = req.flash('success').toString() || "";
