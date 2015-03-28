@@ -71,6 +71,12 @@ router.get('/add', function(req, res, next) {
   });
 });
 
+router.get('/links', function(req, res, next) {
+    res.render('article/links',{
+        title:"友情链接"
+    });
+});
+
 router.get('/view/:articleId', function(req, res, next) {
   Article.findById(req.params.articleId,function(err,article){
     res.render('article/view',{

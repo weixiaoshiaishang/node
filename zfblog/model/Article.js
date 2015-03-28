@@ -15,6 +15,7 @@ var ArticleSchema = new Schema({
     userId:{type:ObjectId,ref:'User'},
     createTime:Object,
     updateTime:Object,
+    pv:Number,
     tags:[String],
     comments:[CommentSchema]
 });
@@ -24,7 +25,7 @@ function Article(article){
     this.title = article.title,
     this.content = article.content,
     this.userId = article.userId,
-        this.tags = article.tags,
+    this.tags = article.tags,
     this.createTime = article.createTime,
     this.updateTime = article.updateTime
 }
@@ -90,7 +91,9 @@ Article.findById= function(_id,callback){
           callback(err);
         else{
             article.content = markdown.toHTML(article.content);
-            callback(err,article);
+            articleModel.update({_id:_id},{$inc:{"pv":1}},function(err){
+                callback(err,article);
+            });
         }
     });
 }
