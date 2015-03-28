@@ -1,3 +1,17 @@
 <%- include include/header%>
-    <p>Welcome to <%= title %></p>
+  <ul class="media-list">
+      <%
+       articles.forEach(function(article){
+           %>
+             <a class="media-left" href="#">
+                 <img src="<%=article.userId.avatar%>">
+             </a>
+             <div class="media-body">
+                 <h4><a href="/article/view/<%=article._id%>"><%=article.title%></a></h4>
+                 <p class="media-left"><%- article.content%></p>
+             </div>
+           <%
+       });
+        %>
+  </ul>
 <%- include include/footer.ejs%>
