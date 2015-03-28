@@ -18,6 +18,14 @@ function Article(article){
     this.createTime = article.createTime,
     this.updateTime = article.updateTime
 }
+Article.prototype.update = function(_id,callback){
+    articleModel.update({_id:_id},{$set:{content:this.content,updateTime:this.updateTime}},function(err,article){
+        if(err)
+            return callback(err);
+        else
+            return callback(null,article);
+    });
+}
 
 Article.prototype.save = function(callback){
     var newArticle = new articleModel({
@@ -38,17 +46,34 @@ Article.prototype.save = function(callback){
 
 Article.pageQuery = function(query,pageInfo,callback){
     articleModel.count(query,function(err,count){
-        articleModel.find(query).sort({createTime:1})
-            .skip((pageInfo.pageNum-1)*pageInfo.pageSize)
-            .limit(pageInfo.pageSize).populate('userId')
+        var queryCursor = articleModel.find(query).sort({createTime:-1});
+        if(pageInfo && pageInfo.pageNum){
+            queryCursor = queryCursor.skip((pageInfo.pageNum-1)*pageInfo.pageSize)
+                .limit(pageInfo.pageSize);
+        }
+        queryCursor.populate('userId')
             .exec(function(err,articles){
             if(err)
                 callback(err);
             else{
-                console.log(articles.length);
                 callback(err,count,articles);
             }
         })
     })
+}
+
+Article.findById= function(_id,callback){
+    articleModel.findOne({_id:_id}).populate('userId').exec(function(err,article){
+        if(err)
+          callback(err);
+        else{
+            callback(err,article);
+        }
+    });
+}
+Article.deleteById = function(_id,callback){
+    articleModel.remove({_id:_id},function(err){
+        callback(err);
+    });
 }
 module.exports= Article;

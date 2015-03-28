@@ -41,6 +41,10 @@ app.use(function(req,res,next){
   res.locals.error = req.flash('error').toString() || "";
   res.locals.success = req.flash('success').toString() || "";
   res.locals.title = "";
+  res.locals.count = 0;
+  res.locals.pageNum= 0;
+  res.locals.pageSize= 0;
+  res.locals.totalPage= 0;
   res.locals.user = req.session.user;
   next();
 })
