@@ -45,6 +45,7 @@ app.use(function(req,res,next){
   res.locals.pageNum= 0;
   res.locals.pageSize= 0;
   res.locals.totalPage= 0;
+  res.locals.keyword='';
   res.locals.user = req.session.user;
   next();
 })

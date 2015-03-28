@@ -1,0 +1,33 @@
+<%- include ../include/header%>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="thumbnail">
+                <img id="showFile" src=""/>
+                <div class="caption">
+                    <h3><input type="file"  id="uploadFile" name="uploadFile" class="form-control"></h3>
+                    <p><button type="button" class="btn btn-default" id="submitBtn">上传图片</button></p>
+                    <p id="generateFile"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    window.onload = function(){
+        $('#submitBtn').click(function(){
+            var formData = new FormData();
+            formData.append('uploadFile',$('#uploadFile')[0].files[0]);
+            $.ajax({
+                url:"/article/upload",
+                type:"POST",
+                data:formData,
+                processData:false,
+                contentType:false
+            }).done(function(ret){
+                $('#showFile').attr('src','/upload'+ret);
+                $('#generateFile').html('![]('+'/upload'+ret+')');
+            });
+        });
+    }
+</script>
+<%- include ../include/footer%>

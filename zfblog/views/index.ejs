@@ -1,5 +1,5 @@
 <%- include include/header%>
-<%if(count){%>你一共发表了<%=count%>篇文章<%}%>
+<%if(count){%>一共有<%=count%>篇文章<%}%>
   <ul class="media-list">
       <%
        articles.forEach(function(article){
@@ -13,7 +13,11 @@
              </div>
               <div class="media-bottom">
                   作者:<a href="/article/u/<%=article.userId._id%>"><%=article.userId.username%></a>
-                  发表时间:<%=article.createTime.minute%>
+                  发表时间:<%=article.createTime.minute%>|<%
+                  article.tags.forEach(function(tag){
+                  %><%=tag%>&nbsp;<%
+                  })
+                  %>
               </div>
            <%
        });

@@ -1,6 +1,7 @@
 module.exports.getTime = function(){
     var date = new Date();
     var time ={
+        ts:date.getTime(),
         date:date,
         year:date.getFullYear(),
         month:date.getFullYear()+"-"+(date.getMonth()+1),

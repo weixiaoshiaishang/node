@@ -3,10 +3,24 @@ var router = express.Router();
 var Article = require('../model/Article');
 var DateUtil = require('../util/DateUtil');
 var settings = require('../settings');
+var formidable = require('formidable');
+var uuid = require('uuid'),
+    path= require('path'),
+    fs = require('fs');
 router.get('/list/:pageNum/:pageSize', function(req, res, next) {
   var pageNum = req.params.pageNum && req.params.pageNum>0?parseInt(req.params.pageNum):1;
   var pageSize = req.params.pageSize &&req.params.pageSize>0?parseInt(req.params.pageSize):settings.pagesize;
-  Article.pageQuery({},{pageNum:pageNum,pageSize:pageSize},function(err,count,articles){
+  var query = {};
+  var searchBtn = req.query.searchBtn;
+  if(searchBtn){
+      req.session.keyword = req.query.keyword;
+  }
+
+  if(req.session.keyword){
+      var pattern = new RegExp(req.session.keyword,"i");
+      query['title'] =pattern;
+  }
+  Article.pageQuery(query,{pageNum:pageNum,pageSize:pageSize},function(err,count,articles){
       if(err)
         next(err);
        else{
@@ -35,6 +49,19 @@ router.get('/u/:userId',function(req,res,next){
       });
     }
   });
+})
+router.get('/tags/:tag',function(req,res,next){
+    Article.getTagArticles(req.params.tag,function(err,count,articles){
+        if(err)
+            next(err);
+        else{
+            res.render('index',{
+                title:"主页",
+                count:count,
+                articles:articles
+            });
+        }
+    });
 })
 router.get('/add', function(req, res, next) {
   res.render('article/add',{
@@ -78,10 +105,12 @@ router.get('/delete/:articleId', function(req, res, next) {
 router.post('/add', function(req, res, next) {
  var user = req.session.user;
  var ts = DateUtil.getTime();
+ var tags = [req.body.tag1,req.body.tag2,req.body.tag3];
  var newArticle = new  Article({
   userId:user._id,
    title:req.body.title,
    content:req.body.content,
+   tags:tags,
    createTime:ts,
    updateTime:ts
  })
@@ -110,5 +139,40 @@ router.post('/edit', function(req, res, next) {
   });
 });
 
+router.get('/upload',function(req,res,next){
+    res.render('article/upload',{
+        title:'上传文件'
+    });
+});
 
+router.post('/upload',function(req,res){
+  new formidable.IncomingForm().parse(req,function(err,fields,files){
+      var filename = uuid.v4()+path.extname(files.uploadFile.name);
+      fs.createReadStream(files.uploadFile.path).pipe(fs.createWriteStream('../public/upload'+filename));
+      console.log(files);
+      res.end(filename);
+  })
+});
+router.post('/addComment',function(req,res){
+    Article.addComment(req.body._id,req.body.userId,req.body.content,function(err){
+        if(err){
+            req.flash('error',err);
+            return res.redirect('back');
+        }
+        req.flash('success',"评论成功");
+        res.redirect('/article/view/'+req.body._id);
+    });
+});
+router.get('/tags',function(req,res,next){
+    Article.getTags(function(err,tags){
+        if(err)
+            next(err);
+        else{
+            res.render('article/tags',{
+                title:"标签页",
+                tags:tags
+            });
+        }
+    });
+})
 module.exports = router;
