@@ -1,0 +1,10 @@
+#contentDiv(style='height:660px;text-align:right')
+   - var infoStyle = user.username?'block':'none';
+   - var regStyle = user.username?'none':'block';
+   #regInfoDiv(style="display:#{infoStyle}")
+      a(href='#',onclick="logout()") 退出
+      span#myUsername #{user.username}
+      img#myAvatar(src=user.avatar,style="height:50px;width:50px")
+   #regBtnDiv(style="display:#{regStyle}")
+      a(href='#',onclick='reg()') 注册用户
+
