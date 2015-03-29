@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+  body
+    mixin study(name,courses)
+      p=name
+      ul
+        each course in courses  
+          li= course
+    +study('zf',['node.js','jade'])
+
+    mixin stu(student)
+      h4 #{student.name}
+      +study(student.name,student.courses) 
+    +stu({name:'px',courses:['node.js','jade']})
+
+    mixin say(words)
+      h4 #{words}
+      if block
+        block
+      else
+        p no words
+    +say('hello')
+      p world!     
+
+      mixin attr(name)
+        p(class=attributes.class,age=attributes.age) #{name}
+      +attr('attr')(class='zfpx',age=32)  
