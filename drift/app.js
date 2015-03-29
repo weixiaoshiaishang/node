@@ -9,6 +9,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var bottle = require('./routes/bottle');
 
 var app = express();
 
@@ -35,12 +36,12 @@ app.use(session({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req,res,next){
-  res.locals.user = req.session.user||{};
+  res.locals.user = req.session.user||{throwTimes:0,pickTimes:0};
   next();
 })
 app.use('/', routes);
 app.use('/users', users);
-
+app.use('/bottle', bottle);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

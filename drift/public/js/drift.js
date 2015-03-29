@@ -1,4 +1,21 @@
 $(function(){
+    $('#throwModal').on('hide.bs.modal',function(){
+        var content = $('#content').val();
+        if(content){
+            $.ajax({
+                url:"/bottle/throw",
+                type:"POST",
+                data:{content:content},
+                dataType:'json'
+            }).done(function(ret){
+                if(ret['code']==1){
+                    $('#throwTimes').text(parseInt($('#throwTimes').text()));
+                    $('#msg').text(ret['msg']);
+                    $('#msgModal').modal();
+                }
+            });
+        }
+    });
     $('#regModal').on('hide.bs.modal',function(){
         var username = $('#username').val();
         if(username){
@@ -20,7 +37,6 @@ $(function(){
                     $('#myUsername').text(userInfo.username);
                     $('#myAvatar').attr('src',userInfo.avatar);
                 }
-
             });
         }
     })
@@ -45,4 +61,34 @@ function logout(){
         }
 
     });
+}
+
+function throwBottle(){
+    if(parseInt($('#throwTimes').text())<=0){
+        alert('你今天扔瓶子的机会用完啦。。。');
+    }else{
+        $('#throwModal').modal('show');
+    }
+}
+
+function pick(){
+    if(parseInt($('#pickTimes').text())<=0){
+        alert('你今天捞瓶子的机会用完啦。。。');
+    }else{
+        $.ajax({
+            url:"/bottle/pick",
+            type:"POST",
+            dataType:'json'
+        }).done(function(ret){
+            if(ret['code']==1){
+                var bottle = ret['msg'];
+                $("#owner").text(bottle.owner);
+                $("#bottle_content").text(bottle.content);
+                $('#pickModal').modal('show');
+            }else{
+                $('#msg').text(ret['msg']);
+                $('#msgModal').modal();
+            }
+        });
+    }
 }

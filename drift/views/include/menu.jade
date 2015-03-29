@@ -1,0 +1,13 @@
+#menuDiv
+   .row
+      .col-md-offset-2.col-md-3
+         img(src='/img/bottle.png')
+         a(href='#',onclick='throwBottle()') 扔一个
+            span#throwTimes.badge #{6 - user.throwTimes}
+      .col-md-3
+         img(src='/img/net.png')
+         a(href='#',onclick='pick()') 捞一个
+            span#throwTimes.badge #{3 - user.pickTimes}
+      .col-md-3
+         img(src='/img/my.png')
+         a(href='#',onclick='myBottle()') 我的瓶子

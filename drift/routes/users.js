@@ -18,7 +18,8 @@ router.post('/add', function(req, res, next) {
     fs.createReadStream(files.avatar.path).pipe(fs.createWriteStream('../public/upload/'+avatarName));
     req.session.user = {
       username:username,
-      avatar:'/upload/'+avatarName
+      avatar:'/upload/'+avatarName,
+        throwTimes:0,pickTimes:0
     }
     return res.json({code:1,msg:req.session.user});
   })

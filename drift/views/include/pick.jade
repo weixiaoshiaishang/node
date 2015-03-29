@@ -1,0 +1,12 @@
+#pickModal.modal.fade(role='dialog',tabindex=-1,aria-hidden='true')
+   .modal-dialog
+      .modal-content
+         .modal-header
+            h4.modal-title 你捞到了一个漂流瓶
+            button.close(type='button',data-dismiss='modal',aria-hidden='true') 关闭
+         .modal-body
+            #owner
+            #bottle_content
+         .modal-footer
+            button.btn.btn-default(type='button',onclick='throwback') 扔回去
+            button.btn.btn-default(type='button',onclick='response') 回应
