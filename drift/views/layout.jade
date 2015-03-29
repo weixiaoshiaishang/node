@@ -2,6 +2,15 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    style.
+      #mainDiv{
+        background-image: url(/img/background.png);
+        height:800px;
+        width:1280px;
+      }
   body
     block content
+  script(src='/js/jquery-2.1.3.min.js')
+  script(src='/js/bootstrap.js')
+  script(src='/js/drift.js')
