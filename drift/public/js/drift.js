@@ -9,7 +9,7 @@ $(function(){
                 dataType:'json'
             }).done(function(ret){
                 if(ret['code']==1){
-                    $('#throwTimes').text(parseInt($('#throwTimes').text()));
+                    $('#throwTimes').text(parseInt($('#throwTimes').text())-1);
                     $('#msg').text(ret['msg']);
                     $('#msgModal').modal();
                 }
@@ -82,8 +82,10 @@ function pick(){
         }).done(function(ret){
             if(ret['code']==1){
                 var bottle = ret['msg'];
-                $("#owner").text(bottle.owner);
-                $("#bottle_content").text(bottle.content);
+                $('#pickTimes').text(parseInt($('#pickTimes').text())-1);
+                $("#owner").val(bottle.username);
+                $("#bottle_content").val(bottle.content);
+                $("#time").val(bottle.time);
                 $('#pickModal').modal('show');
             }else{
                 $('#msg').text(ret['msg']);
@@ -91,4 +93,98 @@ function pick(){
             }
         });
     }
+}
+
+function throwback(){
+    var owner = $('#owner').val();
+    var time = $('#time').val();
+    var bottle_content = $('#bottle_content').val();
+    if(bottle_content){
+        $.ajax({
+            url:"/bottle/throw",
+            type:"POST",
+            data:{content:bottle_content,owner:owner,time:time},
+            dataType:'json'
+        }).done(function(ret){
+            if(ret['code']==1){
+                $('#pickModal').modal('hide');
+                $('#throwTimes').text(parseInt($('#throwTimes').text()));
+                $('#msg').text(ret['msg']);
+                $('#msgModal').modal();
+            }
+        });
+    }
+}
+
+function response(){
+    var owner = $('#owner').val();
+    var time = $('#time').val();
+    var response = $('#response').val();
+    var bottle_content = $('#bottle_content').val();
+    if(bottle_content){
+        $.ajax({
+            url:"/bottle/response",
+            type:"POST",
+            data:{response:response,content:bottle_content,owner:owner,time:time},
+            dataType:'json'
+        }).done(function(ret){
+            if(ret['code']==1){
+                $('#pickModal').modal('hide');
+                $('#msg').text('回应成功,瓶子已经收藏到了我的瓶子里了。');
+                $('#msgModal').modal();
+            }else{
+                alert(ret['msg']);
+            }
+        });
+    }
+}
+
+function myBottle(){
+        $.ajax({
+            url:"/bottle/myBottle",
+            type:"POST",
+            dataType:'json'
+        }).done(function(ret){
+            if(ret['code']==1){
+                var bottles = ret['msg'];
+                $('#myBottleRows').empty();
+                for(var i=0;i<bottles.length;i++){
+                    $('#myBottleRows').append(
+                        $('<div class="col-sm-12"><a href="#" onclick="viewBottle(&quot;'+bottles[i]._id+'&quot;)"'+'>'
+                        +(bottles[i].message[0].user+":"+bottles[i].message[0].content)
+                        +'</a></div>')
+                    );
+                }
+                $('#myBottleModal').modal('show');
+            }else{
+                $('#msg').text(ret['msg']);
+                $('#msgModal').modal();
+            }
+        });
+}
+
+function viewBottle(bottleId){
+    $.ajax({
+        url:"/bottle/pick",
+        type:"POST",
+        data:{bottleId:bottleId},
+        dataType:'json'
+    }).done(function(ret){
+        if(ret['code']==1){
+            var bottle = ret['msg'];
+            $('#viewBottleRows').empty();
+            for(var i=0;i<bottle.message.length;i++){
+                $('#viewBottleRows').append(
+                    $('<div class="col-sm-12">'
+                    +(bottle.message[i].user+":"+bottle.message[i].content)
+                    +'</div>')
+                );
+            }
+            $('#myBottleModal').modal('hide');
+            $('#viewBottleModal').modal('show');
+        }else{
+            $('#msg').text(ret['msg']);
+            $('#msgModal').modal();
+        }
+    });
 }

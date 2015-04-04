@@ -1,0 +1,44 @@
+var mongoose = require('../db');
+var util = require('util');
+var bottleSchema = new mongoose.Schema({
+    user:Array,
+    message:Array
+},{collection:'bottle'});
+
+var bottleModel = mongoose.model('Bottle',bottleSchema);
+function Bottle(bottle){
+    this.user = bottle.user;
+    this.message = bottle.message;
+}
+
+Bottle.prototype.response = function(callback){
+    var newBottle = new bottleModel({
+        user:this.user,
+        message:this.message
+    });
+    newBottle.save(function(err,bottle){
+        if(err)
+            return callback(err);
+        else
+            callback(null,bottle);
+    });
+}
+
+Bottle.myBottle = function(owner,callback){
+    bottleModel.find({user:owner},function(err,bottles){
+        if(err)
+            callback(err);
+        else
+            callback(null,bottles);
+    });
+}
+Bottle.show = function(bottleId,callback){
+    bottleModel.findOne({_id:bottleId},function(err,bottle){
+        if(err)
+            callback(err);
+        else
+            callback(null,bottle);
+    });
+}
+
+module.exports = Bottle;
