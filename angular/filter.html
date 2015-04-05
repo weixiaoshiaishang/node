@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./angular.js"></script>
+</head>
+<body>
+ <div ng-controller="MyCtrl">
+     {{130000000000|date}}
+     {{130000000000|date:"yyyy-MM-dd hh:mm:ss"}}
+     {{999999|currency}}
+     {{999999|currency:"%"}}
+     {{'zfpx'|number}}
+     {{222.2222|number:2}}
+     {{{name:'zf'}|json}}}
+     {{[1,2,3]|limitTo:2}}
+     {{'ABCDE'|lowercase}}
+     <ul ng-repeat="name in names|strong">
+         <li>{{name}}</li>
+     </ul>
+     {{age|multiply:2:2}}
+ </div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    myModule.filter('multiply',function(){
+        return function(item,num1,num2){
+            return item*num1*num2;
+        }
+    });
+    myModule.filter('strong',function(){
+        return function(names){
+           for(var i=0;i<3;i++)
+               names[i].title = i+"";
+            return names;
+        }
+    });
+    myModule.controller('MyCtrl',function($scope,$http){
+    $scope.names = [{name:'b',age:2},{name:'c',age:3},{name:'a',age:1}]
+        $scope.ob = 'age';
+        $scope.age = 5;
+    })
+
+
+</script>
+</html>

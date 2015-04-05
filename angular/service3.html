@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./angular.js"></script>
+</head>
+<body>
+ <div ng-controller="MyCtrl">
+   {{num}}
+ </div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    //直接声明 一个$get方法
+    /*myModule.provider('ageService',{
+        $get:function(){
+            return {age:3}
+        }
+    });*/
+   /* myModule.config(function(ageServiceProvider){
+        ageServiceProvider.age = 5;
+    });
+    myModule.provider('ageService',function(){
+        this.age = 4;
+        this.$get = function(){
+            return {age:this.age};
+        }
+    });
+    myModule.factory('ageService',function(){
+        var a = [1,2,3]
+        return a;
+    });
+    */
+    myModule.service('ageService',Date);
+
+
+
+    myModule.controller('MyCtrl',function($scope,ageService){
+
+
+    })
+
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./angular.js"></script>
+</head>
+<body>
+ <div ng-controller="MyCtrl">
+    <ul ng-repeat="user in users">
+        {{user.name}}
+    </ul>
+ </div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    /**
+     * 1.单例
+     * 2.依赖注入
+     * 3.可以共享数据
+     * 4.
+     */
+    myModule.controller('MyCtrl',function($scope,$http){
+        $http({
+            method:'GET',
+            url:'data.json'
+        }).success(function(data,status,headers,config){
+            $scope.users = data;
+        })
+        $http.age = 40;
+
+    })
+
+</script>
+</html>
