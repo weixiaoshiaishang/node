@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./angular.js"></script>
+</head>
+<body>
+<div ng-controller="EventCtrl">
+    购物车总金额:{{count}}
+    <ul>
+        <li ng-controller="CateEventCtrl">
+            <button ng-click="click()">修改总金额</button>
+            电脑类别 {{count}}
+            <br/>
+            <ul>
+                <li ng-controller="detailCtrl">
+                    IBM {{count}}
+                </li>
+                <li ng-controller="detailCtrl">
+                    Mac {{count}}
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    myModule.controller('EventCtrl',function($rootScope,$scope){//{}
+        $scope.count = 200;
+
+        $scope.$on('change',function(event,mny){
+            console.log(event);
+            $scope.count  = $scope.count + mny;
+        });
+    });
+    myModule.controller('CateEventCtrl',function($rootScope,$scope){//{}
+        $scope.count = 200;
+        $scope.click = function(){
+            //$broadcast 向下 $emit 向上
+            $scope.$emit('change',10);
+        }
+        $scope.$on('change',function(event,mny){
+            $scope.count  = $scope.count + mny;
+        });
+    });
+    myModule.controller('detailCtrl',function($rootScope,$scope){//{}
+        $scope.count = 100;
+        $scope.$on('change',function(event,mny){
+            $scope.count  = $scope.count + mny;
+        });
+    });
+
+</script>
+</html>

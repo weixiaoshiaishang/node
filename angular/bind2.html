@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
+</head>
+<body>
+<div class="panel panel-primary">
+ <div class="panel-heading">
+     <div class="panel-title">双向数据绑定</div>
+ </div>
+ <div class="panel-body" ng-controller="userInfoCtrl">
+
+     <div class="row">
+                <label class="col-md-2 control-label">邮箱{{userInfo}}</label>
+                 <div class="col-md-10">
+                     <input type="email"  class="form-control" required ng-model="userInfo.email">
+                 </div>
+     </div>
+     <div class="row">
+         <div class="col-md-offset-2 col-md-10">
+             <div class="form-group">
+                 <button class="btn btn-default" ng-click="get()">获取</button>
+                 <button class="btn btn-default" ng-click="set()">设置</button>
+                 <button class="btn btn-default" ng-click="reset()">重置</button>
+             </div>
+         </div>
+         </div>
+ </div>
+</div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+
+    myModule.controller('userInfoCtrl',function($scope){
+        $http({
+            url:'/',
+            method:'POST',
+            data:$scope.userInfo
+        }).success(function(data){
+            $scope.userInfo = data;
+        });
+
+        $scope.userInfo={email:'83687401@qq.com'};
+        $scope.get = function(){
+            console.log($scope.userInfo);
+        }
+        $scope.set = function(){
+            $scope.userInfo={email:'zhang_renyang@126.com'};
+        }
+        $scope.reset = function(){
+            $scope.userInfo={};
+        }
+        $scope.submit = function($http){
+            $http({
+                url:'/',
+                method:'POST',
+                data:$scope.userInfo
+            }).success(function(data){
+                consoel.log(data);
+            });
+        }
+    })
+
+</script>
+</html>

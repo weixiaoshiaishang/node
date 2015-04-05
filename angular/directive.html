@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./angular.js"></script>
+</head>
+<body>
+<home>5555555</home>
+<p home></p>
+<!-- home -->
+<div></div>
+<div class="home"></div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    myModule.directive('home',function(){
+       //Element 元素 属性 attributer 注释上 comment 样式
+       return {
+           restrict:'EACM',
+           template:"<span>xxxxx</span>",
+           replace:true
+       }
+    });
+</script>
+</html>

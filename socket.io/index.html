@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    var  socket = io.connect('http://localhost:8080');
+
+    socket.on('connect',function(){
+       // socket.send('hello server');
+        socket.emit('hello',{name:'hello server'});
+    });
+    socket.on('hello',function(msg){
+        console.log(msg);
+    });
+    socket.on('disconnect',function(){
+        alert('disconnect');
+    });
+</script>
+</html>

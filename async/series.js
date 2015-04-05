@@ -27,7 +27,6 @@ async.series([
         setTimeout(function(){
             callback(null,"homework is done");
         },2000);
-
     }
 ],function(err,results){
     console.timeEnd('cost');

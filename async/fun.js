@@ -40,10 +40,16 @@ var eatApple = function(mouths,func){
     }
 }
 
-var e = eatApple(3,function(){
+var e1 = eatApple(3,function(){
     console.log('我吃完了');
 })
 
-e();
-e();
-e();
+var e2 = eatApple(3,function(){
+    console.log('我吃完了');
+})
+e1();
+e1();
+e1();
+e2();
+e2();
+e2();
