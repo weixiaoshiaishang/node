@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./angular.js"></script>
+</head>
+<body>
+ <div ng-controller="CityCtrl">
+     <city pr="{{province}}"></city>
+ </div>
+<div ng-controller="FormCtrl">
+    {{pname}}<button ng-click="ck()">ck</button>
+    <person cname="pname"></person>
+</div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    myModule.controller('CityCtrl',function($scope){
+        $scope.province = "河北";
+    })
+    myModule.directive('city',function(){
+        return {
+            restrict:"EACM",
+            scope:{
+                pr:'@'
+            },
+            template:'<div>{{pr}}</div>',
+            replace:false
+            /*link:function(scope,element,attrs){
+                scope.province = attrs.province;
+            }*/
+        }
+    });
+
+    myModule.controller('FormCtrl',function($scope){
+        $scope.pname = 'a';
+        $scope.ck = function(){
+            $scope.pname= $scope.pname+$scope.pname;
+        }
+    });
+    myModule.directive('person',function(){
+        return {
+            restrict:'AE',
+            scope:{
+                cname:'='//表示把这个变量绑定到控制器的变量上，还可以互相影响
+            },
+            template:'{{cname}}<input type="TEXT" ng-model="cname">'
+        }
+    });
+</script>
+</html>

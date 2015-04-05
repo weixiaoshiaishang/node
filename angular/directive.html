@@ -6,20 +6,27 @@
     <script src="./angular.js"></script>
 </head>
 <body>
-<home>5555555</home>
-<p home></p>
-<!-- home -->
-<div></div>
-<div class="home"></div>
+<div ng-controller="myCtrl">
+    大哥<home></home>
+    二弟<home></home>
+</div>
+
 </body>
 <script>
     var myModule = angular.module('myModule',[]);
-    myModule.directive('home',function(){
-       //Element 元素 属性 attributer 注释上 comment 样式
+
+    myModule.controller('myCtrl',function(){
+
+    });
+
+    myModule.directive('home',function($templateCache){
+       //Element 元素 属性 attributer 注释上 comment 样式 Class
        return {
-           restrict:'EACM',
-           template:"<span>xxxxx</span>",
-           replace:true
+           restrict:'E',
+           scope:{},
+          // template:"<span>hello</span>",
+           template:'<input type="text" ng-model="age">',
+           transclude:true
        }
     });
 </script>

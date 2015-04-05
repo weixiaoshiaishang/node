@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .style_red{
+            background-color: red;
+        }
+        .style_green{
+            background-color: green;
+        }
+    </style>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
+</head>
+<body>
+<div ng-controller="CSSCtrl">
+   <button ng-click="show=!show">切换</button>
+    <div ng-hide="show">
+        show
+        </div>
+</div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+
+    myModule.controller('CSSCtrl',function($scope){
+        $scope.redShow = function(){
+            $scope.isRed=true;
+            $scope.isGreen=false;
+        }
+        $scope.greenShow = function(){
+            $scope.isGreen=true;
+            $scope.isRed=false;
+        }
+    })
+
+</script>
+</html>

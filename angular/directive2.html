@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./angular.js"></script>
+</head>
+<body>
+<coffee><milk></milk></coffee>
+
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+
+
+    myModule.directive('coffee',function(){
+       return {
+           restrict:'EACM',
+           template:"<div>milk</div>",
+           scope:{},//独立拥有的一个作用域
+           //内部controller为指令暴露方法给外部调用
+           controller:function($scope){
+              $scope.drink = ['water','coffee'];
+              this.addSugar = function(){
+                  $scope.drink.push('sugar');
+              }
+               this.addMilk = function(){
+                   $scope.drink.push('milk');
+               }
+           },
+           link:function(scope,element,attr){
+               element.addClass('btn btn-primary');
+               element.bind('click',function(){
+                   console.log(scope.drink);
+               });
+           }
+       }
+    });
+
+    myModule.directive('milk',function(){
+        return {
+            restrict:'EACM',
+            require:'^coffee',
+            //操作DOM 绑定事件
+            link:function(scope,element,attrs,coffCtrl){
+                coffCtrl.addMilk();
+            }
+        }
+    });
+
+
+    myModule.directive('sugar',function(){
+        return {
+          require:'^coffee',
+            //操作DOM 绑定事件
+          link:function(scope,element,attrs,coffCtrl){
+              coffCtrl.addSugar();
+           }
+        }
+    });
+</script>
+</html>
