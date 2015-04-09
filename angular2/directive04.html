@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
+</head>
+<body>
+师傅<person></person><br/>
+大师兄<person></person><br/>
+二师兄<person></person>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+
+    myModule.directive('person',function(){
+        return {
+            restrict:"E",
+            scope:{},//创建独立scope,指令之间就相互独立了，互不影响
+            template:"<span><input ng-model='userName'></span>",
+            replace:true
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
+</head>
+<body>
+<div ng-controller="MyCtrl">
+   {{num}}
+</div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    /*myModule.provider('ageService',{
+        $get:function(){
+            return {age:3};
+        }
+    });*/
+    /*myModule.config(function(ageServiceProvider){
+        ageServiceProvider.age = 100;
+    });
+    myModule.provider('ageService',function(){
+        this.age = 4;
+        this.$get = function(){
+            return {age:this.age};
+        }
+    })*/
+    /*myModule.factory('ageService',function(){
+        var obj = new Object();
+        obj.age = 5;
+        return obj;
+    });*/
+    myModule.service('ageService',function(){
+        this.age = 55;
+    });
+
+    myModule.controller('MyCtrl',function($scope,ageService){
+        $scope.num = ageService.age;
+    });
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
+</head>
+<body>
+<ul>
+    <li><a href="#/home">home</a></li>
+    <li><a href="#/student">student</a></li>
+</ul>
+<div ng-view></div>
+<br/>联系我们
+</body>
+<script>
+    var myModule = angular.module('myModule',['ngRoute']);
+    myModule.config(function($routeProvider){
+        $routeProvider.when('/home',{
+            templateUrl:'template/home.html',
+            controller:'homeCtrl'
+        }).when('/student',{
+            templateUrl:'template/student.html',
+            controller:'studentCtrl'
+        }).otherwise({
+            redirectTo:'/home'
+        });
+    });
+    myModule.controller('homeCtrl',function($scope){
+        $scope.home="Beijing";
+    })
+    myModule.controller('studentCtrl',function($scope){
+        $scope.students=[
+            {name:'jp'},
+            {name:'xk'},
+            {name:'zf'}
+        ];
+    })
+</script>
+</html>

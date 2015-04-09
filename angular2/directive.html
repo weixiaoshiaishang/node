@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./angular.js"></script>
+</head>
+<body>
+<div ng-controller="myCtrl">
+    大哥<home></home>
+    二弟<home></home>
+</div>
+
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+
+    myModule.controller('myCtrl',function(){
+
+    });
+
+    myModule.directive('home',function($templateCache){
+       //Element 元素 属性 attributer 注释上 comment 样式 Class
+       return {
+           restrict:'E',
+           scope:{},
+          // template:"<span>hello</span>",
+           template:'<input type="text" ng-model="age">',
+           transclude:true
+       }
+    });
+</script>
+</html>

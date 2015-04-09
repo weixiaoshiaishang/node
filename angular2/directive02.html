@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
+</head>
+<body>
+    <coffee  sugar milk>私人定制咖啡</coffee>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    myModule.directive('coffee',function(){
+        return {
+            restrict:'E',
+            scope:{},//独立作用域
+            controller:function($scope){
+                $scope.content = ['water','coffee'];
+                this.addSugar = function(){
+                    $scope.content.push('sugar');
+                }
+                this.addMilk = function(){
+                    $scope.content.push('milk');
+                }
+            },
+            //link用来处理事件和属性绑定以及DOM操作
+            link:function(scope,element,attrs){
+                element.addClass('btn btn-primary');
+                element.bind('click',function(){
+                    alert(scope.content);
+                });
+            }
+        }
+    });
+    myModule.directive('sugar',function(){
+        return {
+            require:'^coffee',
+            link:function(scope,element,attrs,coffeeCtrl){
+                coffeeCtrl.addSugar();
+            }
+        }
+    });
+
+    myModule.directive('milk',function(){
+        return {
+            require:'^coffee',
+            link:function(scope,element,attrs,coffeeCtrl){
+                coffeeCtrl.addMilk();
+            }
+        }
+    });
+</script>
+</html>

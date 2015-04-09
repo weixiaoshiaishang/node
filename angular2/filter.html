@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
+</head>
+<body>
+<div ng-controller="MyCtrl">
+  {{13000000000|date}}
+  {{13000000000|date:"yyyy-MM-dd hh:mm:ss"}}
+    {{999999|currency}}
+    {{'zfpx'|number}}
+    {{99.5555|number:2}}
+    {{"ABCDE"|lowercase}}<br/>
+    <ul ng-repeat="name in names|bigger:60">
+        {{name}}
+    </ul>
+    {{'hello'|ap:'tail'}}
+</div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    myModule.filter('ap',function(){
+        return function(item,age){
+            return item.age>age;
+        }
+    });
+    myModule.filter('bigger',function(){
+        return function(items,age){
+            var result = [];
+            items.forEach(function(item){
+                if(item.age>age)
+                    result.push(item);
+            });
+            return result;
+        }
+    });
+    myModule.controller('MyCtrl',function($scope){
+        $scope.names=[{
+            name:'c',age:20
+        },{
+            name:'a',age:10
+        },{
+            name:'b',age:30
+        },{
+            name:'d',age:70
+        }]
+        $scope.ob = '-age';
+    });
+</script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
+</head>
+<body>
+<div ng-controller="CityCtrl">
+    <city province="{{province}}"></city>
+</div>
+<div ng-controller="FormCtrl">
+    控制器:<input type="text" ng-model="pname">
+    <person cname="pname"></person>
+</div>
+<div ng-controller="AndCtrl">
+    <greeting greet="sayHello(name)"></greeting>
+    <greeting greet="sayHello(name)"></greeting>
+</div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    myModule.controller('CityCtrl',function($scope){
+        $scope.province = "河北";
+    });
+    myModule.directive('city',function(){
+        return {
+            restrict:"E",
+            scope:{province:'@'},
+            template:"{{province}}",
+            replace:false
+        }
+    });
+    myModule.controller('FormCtrl',function($scope){
+        $scope.pname = "张三";
+    });
+    myModule.directive('person',function(){
+        return {
+            restrict:"AE",
+            scope:{
+                cname:'='
+            },
+            template:"<input ng-model='cname'>",
+            replace:false
+        }
+    });
+    myModule.controller('AndCtrl',function($scope){
+        $scope.sayHello = function(name){
+            alert('Hello '+name);
+        }
+    });
+
+    myModule.directive('greeting',function(){
+        return {
+            restrict:'AE',
+            scope:{
+                greet:'&'
+            },
+            template:'<input ng-model="username"><button ng-click="greet({name:username})">点击</button>'
+        }
+    });
+</script>
+</html>

@@ -3,33 +3,34 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
 </head>
 <body>
- <div ng-controller="MyCtrl">
+<div ng-controller="MyCtrl">
     <ul ng-repeat="user in users">
         {{user.name}}
     </ul>
- </div>
+</div>
 </body>
 <script>
     var myModule = angular.module('myModule',[]);
+    //service provider factory -> provider
     /**
      * 1.单例
-     * 2.依赖注入
-     * 3.可以共享数据
-     * 4.
+     * 2.它由容器实例化的，
+     * 3.在整个应用生命周期内存在。可以共享数据
+     * 4.$
      */
     myModule.controller('MyCtrl',function($scope,$http){
         $http({
             method:'GET',
-            url:'http://localhost:8080/data.json'
+            url:'./data.json'
         }).success(function(data,status,headers,config){
-            $scope.users = data;
-        })
-        $http.age = 40;
-
-    })
+            $scope.users=data;
+        });
+    });
 
 </script>
 </html>

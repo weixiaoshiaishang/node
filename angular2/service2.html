@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
+</head>
+<body>
+<div ng-controller="MyCtrl">
+    <input ng-model="bookname">
+    {{books}}
+</div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    //service provider factory -> provider
+    /**
+     * 1.单例
+     * 2.它由容器实例化的，
+     * 3.在整个应用生命周期内存在。可以共享数据
+     * 4.$
+     */
+    myModule.factory('bookService',function($http){
+        return{
+            addBook:function(bookname){
+                return $http({
+                    method:'GET',
+                    url:'./data.json'
+                })
+            }
+        }
+    });
+    myModule.controller('MyCtrl',function($scope,$http,$timeout,bookService){
+        $scope.$watch('bookname',function(newBookName){
+            bookService.addBook('').success(function(data){
+                $scope.books =data;
+            });
+            var timeout;
+            if(newBookName){
+                if(timeout)
+                    $timeout.cancel(timeout);
+                timeout = $timeout(function(){
+                    bookService.addBook(newBookName).success(function(data){
+                        $scope.books =data;
+                        $scope.books.push(newBookName);
+                    });
+                },400);
+            }
+        });
+    });
+
+</script>
+</html>

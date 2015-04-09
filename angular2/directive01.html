@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
+</head>
+<body>
+<div ng-controller="showCtrl">
+<hello>node.js</hello><!-- 元素 -->
+</div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    myModule.controller('showCtrl',function(){
+
+    })
+    myModule.run(function($templateCache){
+        $templateCache.put('tmpl.html','<div>Hi All!</div>');
+    });
+    myModule.directive('hello',function($templateCache){
+        //E Element A Attribute C Class M Comment
+        return {
+            restrict:'EACM',
+           // template:'<div>Hi All!</div>',
+           //templateUrl:'tmpl.html',
+            template:'<div>Hi All!<div ng-transclude></div></div>',
+            replace:false,
+            transclude:true
+
+        }
+    });
+</script>
+</html>

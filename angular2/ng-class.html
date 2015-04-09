@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .style_red{
+            background-color: red;
+        }
+        .style_green{
+            background-color: green;
+        }
+        body{
+            margin: 20px;
+        }
+    </style>
+    <script src="./angular.js"></script>
+    <script src="./angular-route.js"></script>
+</head>
+<body>
+<div ng-controller="cssCtrl">
+    <p class="style_{{color}}">样式</p>
+    <input ng-model="color">
+
+    <p ng-class="{style_red:isRed,style_green:isGreen}">ng-class</p>
+    <input type="radio" name="ck_color" value="red" ng-model="isRed">
+    <input type="radio" name="ck_color" value="green" ng-model="isGreen">
+
+</div>
+</body>
+<script>
+    var myModule = angular.module('myModule',[]);
+    myModule.controller('cssCtrl',function(){
+
+    })
+</script>
+</html>
