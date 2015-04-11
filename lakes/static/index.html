@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="lakesModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">欢迎光临</a>
+        </div>
+        <nav class="collapse navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav navbar-right" style="color:white" ng-show="me">
+                <li ng-bind="me.email"></li>
+                <li><img ng-src="{{me.avatar}}" title="{{me.name}}" class="img-rounded"></li>
+                <li><a href="#" ng-click="logout()">退出</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="container" style="margin-top: 100px">
+    <div class="row" ng-view></div>
+</div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/components/jquery/dist/jquery.js"></script>
+<script src="/components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/components/angular/angular.js"></script>
+<script src="/components/angular-route/angular-route.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/controllers/LoginCtrl.js"></script>
+<script src="/js/controllers/RoomsCtrl.js"></script>
+<script src="/js/services/socket.js"></script>
+<script src="/js/directives/AutoScrollToBottom.js"></script>
+<script src="/js/directives/ctrlEnterBreakLine.js"></script>
+<script src="/js/controllers/RoomCtrl.js"></script>
+<script src="/js/controllers/MessageCreatorCtrl.js"></script>
+<script>
+
+</script>
+</html>

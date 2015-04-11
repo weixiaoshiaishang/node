@@ -1,0 +1,37 @@
+<div class="col-md-9">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            房间名:{{room.name}}&nbsp; <a class="btn btn-default" href="#" ng-click="back()">回到大厅</a>
+        </div>
+        <div class="panel-body" >
+            <div class="list-group" auto-scroll-to-bottom style="height:400px;overflow-y: auto">
+                <div class="list-group-item" ng-repeat="message in room.messages track by $index">
+                    <img ng-src="{{message.creator.avatar}}" class="img-rounded">
+                    {{message.creator.email}}:{{message.content}}
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <form role="form" ng-controller="MessageCreatorCtrl">
+                <div class="form-group">
+                    <textarea required class="form-control" ng-model="newMessage" ctrl-enter-break-line="createMessage()"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            在线用户
+        </div>
+        <div class="panel-body">
+            <div class="list-group">
+                <div class="list-group-item" ng-repeat="user in room.users">
+                    <img ng-src="{{user.avatar}}" class="img-rounded">  {{user.email}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
