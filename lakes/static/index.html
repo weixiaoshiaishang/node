@@ -2,7 +2,9 @@
 <html ng-app="lakesModule">
 <head lang="en">
     <meta charset="UTF-8">
+    <!-- build:css /css/lakes.css -->
     <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css">
+    <!-- endbuild -->
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,6 +26,7 @@
 </div>
 </body>
 <script src="/socket.io/socket.io.js"></script>
+<!-- build:js /js/lakes.js -->
 <script src="/components/jquery/dist/jquery.js"></script>
 <script src="/components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="/components/angular/angular.js"></script>
@@ -36,7 +39,5 @@
 <script src="/js/directives/ctrlEnterBreakLine.js"></script>
 <script src="/js/controllers/RoomCtrl.js"></script>
 <script src="/js/controllers/MessageCreatorCtrl.js"></script>
-<script>
-
-</script>
+<!-- endbuild -->
 </html>

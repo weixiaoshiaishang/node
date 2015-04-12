@@ -13,23 +13,25 @@
   "keywords": [
     "key"
   ],
-  "dependencies":{
-    "body-parser":"*",
-    "cookie-parser":"*",
-    "express":"*",
-    "express-session":"*",
-    "socket.io":"*"
+  "dependencies": {
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "express": "*",
+    "express-session": "*",
+    "socket.io": "*"
   },
-  "devDependencies":{
-    "grunt":"*",
-    "grunt-concat":"*",
-    "grunt-contrib-clean":"*",
-    "grunt-contrib-concat":"*",
-    "grunt-contrib-uglify":"*",
-    "grunt-filerev":"*",
-    "grunt-rev":"*",
-    "grunt-usemin":"*",
-    "grunt-inline-angular-templates":"*"
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-concat": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-uglify": "*",
+    "grunt-filerev": "*",
+    "grunt-inline-angular-templates": "*",
+    "grunt-rev": "*",
+    "grunt-usemin": "*"
   },
   "author": "zfpx",
   "license": "ISC"
