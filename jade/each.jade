@@ -1,0 +1,23 @@
+doctype html
+html
+   head
+   body
+     - var course = {name:'node.js',price:5}
+     - for(var v in course)
+       p #{v}:#{course[v]}
+
+     each value,key in course
+        p #{key}:#{value}
+
+     - var persons = ['zhangsan','lisi']
+     each person in persons   
+      p= person
+
+     - var students = [{id:1,name:'zhangsan',hobbies:['basketball','football']},{id:2,name:'lisi',hobbies:['pingpong','baseball']}] 
+     ul
+      each student in students
+        li=student.id
+        li=student.name
+        ul
+          each hobby in student.hobbies
+            li= hobby

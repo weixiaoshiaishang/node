@@ -1,0 +1,27 @@
+doctype html
+html
+   head
+   body
+     - var flag = false
+     - var persons = ['zhangsan1','lisi']
+     if persons.length>0
+       if persons[0] == 'zhangsan'
+         p you are zhangsan
+       else if persons[1] == 'lisi'
+         p you are lisi
+       else
+         p  i don't know you.  
+
+      unless !flag
+        p= persons.length
+
+      - var name = 'zf'
+      case name
+        when 'zf'
+          p hi zf
+        when 'px'
+           p hi px
+        default
+           p hi #{name}     
+
+            
